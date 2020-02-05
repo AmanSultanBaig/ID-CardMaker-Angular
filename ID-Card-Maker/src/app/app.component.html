@@ -1,0 +1,73 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="https://i.ya-webdesign.com/images/business-cards-backgrounds-png-8.png" width="30" height="30" class="d-inline-block align-top" alt=""> ID Card Maker
+    </a>
+</nav>
+
+<div class="container">
+    <div class="row">
+
+        <!-- id card creating form -->
+        <div class="col-md-6 mt-5 formArea">
+            <form [formGroup]="formGroup">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" formControlName="Name" placeholder="Enter Name">
+                    <small *ngIf="formGroup.get('Name').hasError('required')" class="form-text">Name is Required</small>
+                    <small *ngIf="formGroup.get('Name').hasError('pattern')" class="form-text">Name should contain characters</small>
+                    <small *ngIf="formGroup.get('Name').hasError('minlength')" class="form-text">Name should contain atleast 3 characters</small>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" class="form-control" formControlName="designation" placeholder="Enter Designation">
+                    <small *ngIf="formGroup.get('designation').hasError('required')" class="form-text">Designation is Required</small>
+                </div>
+                <div class="form-group">
+                    <label>Website</label>
+                    <input type="tex" class="form-control" formControlName="web" placeholder="Enter Website">
+                    <small *ngIf="formGroup.get('web').hasError('required')" class="form-text">Website is Required</small>
+                </div>
+                <div class="input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" (change)="onFileSelect($event.target)" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- id card preview -->
+        <div class="col-md-6 mt-5" id="printableArea">
+            <div class="id-card-tag"></div>
+            <div class="id-card-tag-strip"></div>
+            <div class="id-card-hook"></div>
+            <div class="id-card-holder">
+                <div class="id-card">
+                    <div class="header">
+                        <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/angular-3-logo.png">
+                    </div>
+                    <div class="photo">
+                        <img src="{{ photoUrl || 'https://clipartart.com/images/default-profile-picture-clipart-3.jpg' }}">
+                    </div>
+                    <h2>Name: {{ formGroup.get('Name').value || 'Your Name' }} </h2>
+                    <h3>Designation: {{ formGroup.get('designation').value || 'Your Designation' }}</h3>
+                    <div class="qr-code mt-2">
+                        <img src="https://www.shopify.com/growth-tools-assets/qr-code/shopify-faae7065b7b351d28495b345ed76096c03de28bac346deb1e85db632862fd0e4.png">
+                    </div>
+                    <h3 class="mt-2">{{ formGroup.get('web').value || 'Your Website' }}</h3>
+                    <hr>
+                    <p><strong>"PENGG"</strong>HOUSE,4th Floor, TC 11/729(4), Division Office Road
+                        <p>
+                            <p>Near PMG Junction, Thiruvananthapuram Kerala, India <strong>695033</strong></p>
+                            <p>Ph: 9446062493 | E-ail: info@onetikk.info</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
