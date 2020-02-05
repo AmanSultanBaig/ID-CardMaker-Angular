@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// Include ReactiveFormsModule for creating form controls
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
@@ -9,7 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule // import ReactiveFormsModule here
   ],
   providers: [],
   bootstrap: [AppComponent]
