@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import required module for supporting form controls
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -13,14 +14,15 @@ export class AppComponent {
   alphabatRegex = '^[a-zA-Z]*$';
   reader: FileReader;
   constructor(private _fb: FormBuilder) {
+    
     this.formGroup = this._fb.group({
       Name: this._fb.control('', { validators : [Validators.required, Validators.pattern(this.alphabatRegex), Validators.minLength(3)], updateOn: 'change'}),
       designation: this._fb.control('', { validators : [Validators.required], updateOn: 'change'}),
       web: this._fb.control('', { validators : [Validators.required], updateOn: 'change'})
-      // pic: this._fb.control('')
     });
+    
   }
-
+  
   onFileSelect(input) {
     if (input.files && input.files[0]) {
       this.reader = new FileReader();
