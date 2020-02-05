@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private _fb: FormBuilder) {
     this.formGroup = this._fb.group({
       Name: this._fb.control('', { validators : [Validators.required, Validators.pattern(this.alphabatRegex), Validators.minLength(3)], updateOn: 'change'}),
-      designation: this._fb.control('', { validators : [Validators.required, Validators.pattern(this.alphabatRegex)], updateOn: 'change'}),
+      designation: this._fb.control('', { validators : [Validators.required], updateOn: 'change'}),
       web: this._fb.control('', { validators : [Validators.required], updateOn: 'change'})
       // pic: this._fb.control('')
     });
